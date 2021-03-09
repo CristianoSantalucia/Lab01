@@ -48,6 +48,9 @@ public class FXMLController
 		model.reset();
 		
 		long t2 = System.nanoTime(); // 
+		
+		aggiornaTesto();
+
 		txtPerformance.setText(""+(t2-t1)/1e3+" nanoosecondi"); // 
 	}
 	@FXML

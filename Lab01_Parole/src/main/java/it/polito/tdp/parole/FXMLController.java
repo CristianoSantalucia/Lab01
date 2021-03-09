@@ -16,33 +16,62 @@ public class FXMLController
 
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private TextField txtParola;
-
     @FXML
     private Button btnInserisci;
-
     @FXML
     private TextArea txtResult;
-
     @FXML
     private Button btnReset;
-
     @FXML
-    void doInsert(ActionEvent event) {
-    	// TODO
-    }
+    private TextArea txtPerformance;
 
-    @FXML
-    void doReset(ActionEvent event) {
-    	// TODO
-    }
+	// 
+	@FXML
+	void doInsert(ActionEvent event)
+	{
+		long t1 = System.nanoTime(); // 
+		model.addParola(""+txtParola.getText());
+		long t2 = System.nanoTime(); // 
 
-    @FXML
+		aggiornaTesto();
+		txtPerformance.setText(""+(t2-t1)/1e3+" nanoosecondi"); // 
+	}
+	@FXML
+	void doReset(ActionEvent event)
+	{
+		long t1 = System.nanoTime(); // 
+		
+		model.reset();
+		
+		long t2 = System.nanoTime(); // 
+		txtPerformance.setText(""+(t2-t1)/1e3+" nanoosecondi"); // 
+	}
+	@FXML
+	void cancellaParola()
+	{
+		long t1 = System.nanoTime(); // 
+
+		String s = txtResult.getSelectedText();
+		model.cancella(s);
+		
+		long t2 = System.nanoTime(); //
+
+		aggiornaTesto();
+		
+		txtPerformance.setText(""+(t2-t1)/1e3+" nanoosecondi"); // 
+	}
+	private void aggiornaTesto()
+	{
+		txtParola.clear();
+		txtResult.clear();
+		txtResult.setText(model.stampaLista());
+	}
+
+	@FXML
     void initialize() {
         assert txtParola != null : "fx:id=\"txtParola\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnInserisci != null : "fx:id=\"btnInserisci\" was not injected: check your FXML file 'Scene.fxml'.";

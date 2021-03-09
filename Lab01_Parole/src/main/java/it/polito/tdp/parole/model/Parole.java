@@ -15,7 +15,8 @@ public class Parole
 	// metodi
 	public void addParola(String p)
 	{
-		lista.add(p);
+		if(!lista.contains(p) && !p.equals("") && !p.equals(" "))
+			lista.add(p);
 	}
 	public List<String> getElenco()
 	{
@@ -25,4 +26,16 @@ public class Parole
 	{
 		lista.clear();
 	}
+	public void cancella(String s)
+	{
+		if(lista.contains(s))
+			lista.remove(s);
+	}
+	public String stampaLista()
+	{
+		String s = "";
+		for (String str : this.lista)
+			s += str + "\n";
+		return s;
+	} 
 }

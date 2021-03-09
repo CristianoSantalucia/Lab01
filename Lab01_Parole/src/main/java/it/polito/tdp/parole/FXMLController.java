@@ -10,9 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class FXMLController {
-	
-	Parole elenco ;
+public class FXMLController
+{
+	Parole model; 
 
     @FXML
     private ResourceBundle resources;
@@ -48,7 +48,10 @@ public class FXMLController {
         assert btnInserisci != null : "fx:id=\"btnInserisci\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
-
-        elenco = new Parole() ;
     }
+
+	public void setModel(Parole model)
+	{
+		this.model = model;
+	}
 }

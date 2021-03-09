@@ -1,24 +1,28 @@
 package it.polito.tdp.parole.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Parole {
-		
-	public Parole() {
-		//TODO
-	}
+public class Parole
+{
+	List<String> lista;
 	
-	public void addParola(String p) {
-		//TODO
+	// costruttore
+	public Parole()
+	{
+		lista = new ArrayList<>();
 	}
-	
-	public List<String> getElenco() {
-		//TODO
-		return null;
+	// metodi
+	public void addParola(String p)
+	{
+		lista.add(p);
 	}
-	
-	public void reset() {
-		// TODO
+	public List<String> getElenco()
+	{
+		return lista;
 	}
-
+	public void reset()
+	{
+		lista.clear();
+	}
 }
